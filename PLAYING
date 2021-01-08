@@ -1,0 +1,32 @@
+PLAYING
+
+
+; Ender 3 Custom Start G-code
+G92 E0 ; Reset Extruder
+G28 ; Home all axes
+
+M109 S200 ; set hotend temperature, wait
+M190 S60 ; set bed temperature, wait
+
+G1 Z3.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+G1 X10 Y20 Z0.3 F5000.0 ; Move to start position
+G1 X10 Y200.0 Z0.3 F1500.0 E15 ; Draw the first line
+G1 X15 Y200.0 Z1 F5000.0 ; Move to side a little
+G1 X15 Y20 Z1 F1500.0 E30 ; Draw the second line
+
+G92 E0 ; Reset Extruder
+G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+
+G1 X5 Y20 Z0.3 F5000.0 ; Move over to prevent blob squish
+
+
+
+
+Send: N60 G1 X174.500 Y174.750 E21.07850*106
+Recv: //action:prompt_end
+Recv: //action:prompt_begin FilamentRunout T0
+Recv: //action:prompt_show
+Recv: //action:paused filament_runout 0
+Printer signalled that it paused, switching state...
+Changing monitoring state from "Printing" to "Pausing"
+[...]
