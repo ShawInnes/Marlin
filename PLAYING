@@ -30,3 +30,11 @@ Recv: //action:paused filament_runout 0
 Printer signalled that it paused, switching state...
 Changing monitoring state from "Printing" to "Pausing"
 [...]
+
+
+M412 D7 ; set runout sensor measurement
+
+M119 ; get endstop states
+M500 ; save settings
+
+https://marlinfw.org/docs/gcode/M119.html
